@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>01_module</title>
+</head>
+<body>
+01_module
+
+<!--1. 浏览器加载-->
+<!--（1）两种异步加载的语法-->
+<!--&lt;!&ndash;defer: 渲染完在执行&ndash;&gt;-->
+<!--&lt;!&ndash;如果有多个defer脚本，会按照它们在页面出现的顺序加载&ndash;&gt;-->
+<!--<script src="../../public/js/23_Module的加载实现/01_module.js" defer></script>-->
+<!--&lt;!&ndash;async：下载完就执行&ndash;&gt;-->
+<!--&lt;!&ndash;多个async脚本是不能保证加载顺序的&ndash;&gt;-->
+<!--<script src="../../public/js/23_Module的加载实现/01_module.js" async></script>-->
+
+<!--（2）加载规则-->
+<!--浏览器对于带有type="module"的<script>，都是异步加载，不会造成堵塞浏览器，
+即等到整个页面渲染完，再执行模块脚本，
+等同于打开了<script>标签的defer属性。-->
+<!--<script type="module" src="../../public/js/23_Module的加载实现/01_module.js"></script>-->
+
+<!--（3）<script>标签的async属性也可以打开，这时只要加载完成，渲染引擎就会中断渲染立即执行。
+执行完成后，再恢复渲染。-->
+<!--<script type="module" src="../../public/js/23_Module的加载实现/01_module.js" async></script>-->
+
+<!--（4）ES6 模块也允许内嵌在网页中，语法行为与加载外部脚本完全一致-->
+<!--<script type="module">-->
+  <!--import utils from './utils.js';-->
+<!--</script>-->
+
+
+<script type="module" src="../../public/js/23_Module的加载实现/01_module.js"></script>
+</body>
+</html>
