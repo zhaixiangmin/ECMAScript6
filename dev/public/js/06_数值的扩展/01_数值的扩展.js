@@ -176,3 +176,63 @@ Math.trunc = Math.trunc || function (x) {
 
 // （2）Math.sign()
 console.log(Math.sign(-5)); // -1
+console.log(Math.sign(5)); // 1
+console.log(Math.sign(0)); // 0
+console.log(Math.sign(-0)); // -0
+console.log(Math.sign(NaN)); // NaN
+
+console.log(Math.sign('')); // 0
+console.log(Math.sign(true)); // 1
+console.log(Math.sign(false)); // 0
+console.log(Math.sign(null )); // 0
+console.log(Math.sign('9' )); // 1
+console.log(Math.sign('foo' )); // NaN
+console.log(Math.sign( )); // NaN
+console.log(Math.sign(undefined )); // NaN
+
+// 对于没有部署这个方法的环境，可以用下面的代码模拟
+Math.sign2 = function (x) {
+  x = +x;
+  if (x === 0 || isNaN(x)) {
+    return 0;
+  }
+
+  return x > 0 ? 1 : -1;
+}
+console.log(Math.sign2('foo' )); // NaN
+
+// （3）Math.cbrt()
+// Math.cbrt方法用于计算一个数的立方根
+console.log(Math.cbrt(-1)); // -1
+console.log(Math.cbrt(0)); // 0
+console.log(Math.cbrt('8')); // 2
+console.log(Math.cbrt('hello')); // NaN
+
+// 对于没有部署这个方法的环境，可以用下面的代码模拟
+Math.cbrt2 = function (x) {
+  var y = Math.pow(Math.abs(x), 1/3);
+  return x > 0 ? y : -y;
+}
+console.log(Math.cbrt2(-1)); // -1
+console.log(Math.cbrt2(0)); // 0
+console.log(Math.cbrt2('8')); // 2
+console.log(Math.cbrt2('hello')); // NaN
+
+// （4）cbrt2()
+// 计算一个数的 32 位二进制形式的前导 0 的个数
+console.log(Math.clz32(0)); // 32
+console.log(Math.clz32(1)); // 31
+console.log(Math.clz32(1000)); // 22
+console.log(Math.clz32(0b01000000000000000000000000000000)); // 1
+console.log(Math.clz32(0b00100000000000000000000000000000)); // 2
+
+// 对于小数，Math.clz32方法只考虑整数部分
+console.log(Math.clz32(3.2)); // 30
+
+// （8）指数运算符
+// ES2016 新增了一个指数运算符（**）
+console.log(2 ** 2); // 4
+console.log(2 ** 3); // 8
+
+// 这个运算符的一个特点是右结合
+console.log(2 ** 3 ** 2); // 512 => 2 ** (3 ** 2)
