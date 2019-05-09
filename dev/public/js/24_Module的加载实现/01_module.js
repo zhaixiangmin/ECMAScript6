@@ -1,4 +1,4 @@
-import { firstName, lastName, year } from '../../js/23_Module的加载实现/profile.js'
+import { firstName, lastName, year } from './/profile.js'
 const x = 1;
 
 console.log(x == window.x); // false
